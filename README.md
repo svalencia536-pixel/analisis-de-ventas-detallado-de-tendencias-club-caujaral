@@ -35,11 +35,14 @@ No usa dependencias externas: solo módulos nativos de Node 18+.
 
 | Variable | Por defecto | Para qué |
 |---|---|---|
+| `PBI_RESOURCE_KEY` | — | **Obligatoria.** El `k` del reporte publicado (UUID dentro de `?r=` en la URL). |
+| `PBI_DATASET_ID` | — | **Obligatoria.** El `ti` del reporte (UUID dentro de `?r=` en la URL). |
+| `PBI_REPORT_ID` | — | **Obligatoria.** El `r` del reporte (UUID dentro de `?r=` en la URL). |
+| `PBI_MODEL_ID` | `1871413` | ID del modelo de datos (casi nunca cambia). |
 | `DASHBOARD_PASSWORD` | *(vacía)* | Sin definir, el tablero queda **abierto**. Es la decisión tomada: los mismos datos ya son públicos en el reporte de Power BI del que se alimenta. Para cerrarlo, basta con crear esta variable en Railway. |
 | `DASHBOARD_USER` | `caujaral` | Usuario del login, solo aplica si se define la clave |
 | `PORT` | `3000` | Lo asigna Railway automáticamente |
 | `HORA_REFRESCO` | `6` | Hora de Bogotá del refresco diario |
-| `PBI_RESOURCE_KEY` | la del reporte actual | El `k` dentro del `?r=` de la URL del reporte |
 
 ## Desplegar en Railway
 

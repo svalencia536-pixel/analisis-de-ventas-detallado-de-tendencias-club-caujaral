@@ -11,13 +11,22 @@
 
 const CFG = {
   url: 'https://wabi-south-central-us-c-primary-api.analysis.windows.net/public/reports/querydata?synchronous=true',
-  // "k" del parametro ?r= de la URL del reporte publicado
-  resourceKey: process.env.PBI_RESOURCE_KEY || '61f3e1a9-ed07-485a-b2a4-fe2e5f061b6a',
-  datasetId: process.env.PBI_DATASET_ID || '8d41e2a9-2d13-436b-8a97-ac4b0764b74a',
-  reportId: process.env.PBI_REPORT_ID || '628aee9c-62c6-4668-9350-92ff8b33ea29',
+  // IDs del reporte publicado: extraidos del parametro ?r= de la URL
+  // Definir PBI_RESOURCE_KEY, PBI_DATASET_ID, PBI_REPORT_ID en Railway o .env
+  resourceKey: process.env.PBI_RESOURCE_KEY,
+  datasetId: process.env.PBI_DATASET_ID,
+  reportId: process.env.PBI_REPORT_ID,
   modelId: Number(process.env.PBI_MODEL_ID || 1871413),
   visualId: '075bb3a065bae905c5eb',
 };
+
+// Validacion: si falta algun ID obligatorio, error claro
+if (!CFG.resourceKey || !CFG.datasetId || !CFG.reportId) {
+  throw new Error(
+    'Faltan variables de entorno. Define: PBI_RESOURCE_KEY, PBI_DATASET_ID, PBI_REPORT_ID.\n' +
+    'Extrae los valores de la URL del reporte publicado: ?r=... contiene los tres UUIDs en un JSON codificado.'
+  );
+}
 
 const NULL_MASK = 'Ø';
 

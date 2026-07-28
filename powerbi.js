@@ -20,12 +20,13 @@ const CFG = {
   visualId: '075bb3a065bae905c5eb',
 };
 
-// Validacion: si falta algun ID obligatorio, error claro
-if (!CFG.resourceKey || !CFG.datasetId || !CFG.reportId) {
-  throw new Error(
-    'Faltan variables de entorno. Define: PBI_RESOURCE_KEY, PBI_DATASET_ID, PBI_REPORT_ID.\n' +
-    'Extrae los valores de la URL del reporte publicado: ?r=... contiene los tres UUIDs en un JSON codificado.'
-  );
+function validarConfig() {
+  if (!CFG.resourceKey || !CFG.datasetId || !CFG.reportId) {
+    throw new Error(
+      'Faltan variables de entorno. Define: PBI_RESOURCE_KEY, PBI_DATASET_ID, PBI_REPORT_ID.\n' +
+      'Extrae los valores de la URL del reporte publicado: ?r=... contiene los tres UUIDs en un JSON codificado.'
+    );
+  }
 }
 
 const NULL_MASK = 'Ø';
@@ -162,6 +163,7 @@ function categoria(tipo, agrupacion) {
 const num = (v) => (v === null || v === undefined ? 0 : Number(v) || 0);
 
 async function extraer(log = () => {}) {
+  validarConfig();
   const t0 = Date.now();
 
   // 1. anios disponibles: se descubren solos, asi sirve tambien en 2027+

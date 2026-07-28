@@ -4,7 +4,7 @@ Sirve el dashboard de participación Alimentos/Bebidas y el comparativo por año
 leyendo los datos del reporte público de Power BI del club.
 
 **Se refresca solo todos los días a las 6:00 a.m. hora Colombia**, y además cada
-vez que el servicio arranca.
+vez que el servicio arranca. Hosted en Railway con auto-deploy.
 
 ## Cómo funciona
 

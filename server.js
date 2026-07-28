@@ -13,7 +13,7 @@ const path = require('path');
 const zlib = require('zlib');
 const { extraer } = require('./powerbi');
 
-const PUERTO = Number(process.env.PORT || 3000);
+const PUERTO = Number(process.env.PORT || 3000); // Asignado automáticamente por Railway
 // Por decision del club el tablero va abierto: no se define DASHBOARD_PASSWORD.
 // Los mismos datos ya son publicos en el reporte de Power BI del que se alimenta.
 // Si algun dia se quiere cerrar, basta con crear la variable en Railway.

@@ -13,9 +13,9 @@ const CFG = {
   url: 'https://wabi-south-central-us-c-primary-api.analysis.windows.net/public/reports/querydata?synchronous=true',
   // IDs del reporte publicado: extraidos del parametro ?r= de la URL
   // Definir PBI_RESOURCE_KEY, PBI_DATASET_ID, PBI_REPORT_ID en Railway o .env
-  resourceKey: process.env.PBI_RESOURCE_KEY,
-  datasetId: process.env.PBI_DATASET_ID,
-  reportId: process.env.PBI_REPORT_ID,
+  resourceKey: process.env.PBI_RESOURCE_KEY || '',
+  datasetId: process.env.PBI_DATASET_ID || '',
+  reportId: process.env.PBI_REPORT_ID || '',
   modelId: Number(process.env.PBI_MODEL_ID || 1871413),
   visualId: '075bb3a065bae905c5eb',
 };
